@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: local('PoppinsRegular'),url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  src: local('PoppinsBold'),
+      url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: local('PoppinsSemiBold'),url('./assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
