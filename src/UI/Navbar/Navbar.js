@@ -5,6 +5,9 @@ const NavbarStyles = styled.div`
   color: #A8AEBF;
   height: 80px;
   backdrop-filter: blur(40px);
+  position: fixed;
+  top: 0;
+  left: 0;
 `
 
 const NavbarContainer = styled.div`
