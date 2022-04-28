@@ -1,29 +1,41 @@
 import styled from 'styled-components'
 import Brand from '../Brand/Brand';
 
-const NavbarStyles = styled.div`
+const NavbarStyles = styled.nav`
   color: #A8AEBF;
   height: 80px;
-  backdrop-filter: blur(40px);
-
+  background-color: rgba(18, 24, 41, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 `
 
 const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 120px 0;
+  padding: 20px 120px 0; z-index: 200;
 `
 
 const Menu = styled.div`
   ul {
     display: flex;
     margin-right: 40px;
+    
   }
 
   ul li {
+    transition: all .5s;
     margin: 0px 16px;
   }
+  
+  ul li:hover{
+    cursor: pointer;
+    color: #7B6EF6;
+  }
+  
 `
 
 const Navbar = () => {
