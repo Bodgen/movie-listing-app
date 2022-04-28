@@ -3,11 +3,12 @@ import './fonts.css';
 import Navbar from './UI/Navbar/Navbar';
 import styled from "styled-components";
 import Card from "./UI/Card/Card";
+import Button from "./UI/Button/Button";
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 120px 75px;
   padding-top: 160px;
 `
@@ -15,11 +16,12 @@ const Container = styled.div`
 
 function App() {
     return (<div className="App">
-            <Navbar/>
-            <Container>
-                <Card/>
-            </Container>
-        </div>);
+        <Navbar/>
+        <Container>
+            <Card/>
+            <Button/>
+        </Container>
+    </div>);
 }
 
 export default App;

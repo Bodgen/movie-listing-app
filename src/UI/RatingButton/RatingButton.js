@@ -7,7 +7,7 @@ const RatingButtonStyles = styled.div`
   align-items: center;
   width: 58px;
   height: 32px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
   border-radius: 8px;
   color: #FFBD6D;

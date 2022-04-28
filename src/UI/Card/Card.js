@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import RatingButton from "../RatingButton/RatingButton";
-import image from '../../assets/img/Shang-Chi-and-the-Legend-of-the-Ten-Rings-Releases-New 1.png'
+import image from '../../assets/img/Shang-Chi-and-the-Legend-of-the-Ten-Rings-Releases-New1.png'
 
 const CardStyles = styled.div`
   width: 280px;
