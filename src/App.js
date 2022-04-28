@@ -4,6 +4,7 @@ import Navbar from './UI/Navbar/Navbar';
 import styled from "styled-components";
 import Card from "./UI/Card/Card";
 import Button from "./UI/Button/Button";
+import CustomInput from "./UI/CustomInput/CustomInput";
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ function App() {
         <Container>
             <Card/>
             <Button/>
+            <CustomInput/>
         </Container>
     </div>);
 }
