@@ -28,6 +28,7 @@ const CardContainer = styled.div`
 `
 const Poster = styled.img`
   width: 256px;
+  height: 400px;
   border-radius: 8px;
   transition: transform .3s cubic-bezier(.75, .25, .25, .75);
   object-fit: cover;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
 
 const CategoriesStyles = styled.div`
@@ -37,18 +37,15 @@ const CategoriesStyles = styled.div`
   }
 
 `
-const items = ['All', 'Movie', 'TV Show']
 
-const Categories = () => {
-
-    const [activeItem, setActiveItem] = useState(0)
-
+const Categories = ({items,activeCategory,onClickCategory}) => {
     return (
         <CategoriesStyles>
             <ul>
+                <li className={activeCategory===null?'active':''} onClick={()=>onClickCategory(null)}>All</li>
                 {items.map((item, index) => <li
-                    className={activeItem === index ? 'active' : ''}
-                    onClick={() => setActiveItem(index)} key={`${item}_${index}`}>{item}
+                    className={activeCategory === index ? 'active' : ''}
+                    onClick={() => onClickCategory(index)} key={`${item}_${index}`}>{item}
                 </li>)}</ul>
         </CategoriesStyles>
     );
