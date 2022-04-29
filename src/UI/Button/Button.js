@@ -19,10 +19,10 @@ const ButtonStyles = styled.div`
 `
 
 
-const Button = () => {
+const Button = ({children}) => {
     return (
         <ButtonStyles>
-            <h6>Search</h6>
+            <h6>{children}</h6>
         </ButtonStyles>
     );
 };

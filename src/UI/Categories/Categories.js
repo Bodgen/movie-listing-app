@@ -26,6 +26,7 @@ const CategoriesStyles = styled.div`
     text-align: center;
     margin-right: 32px;
     padding: 8px 32px;
+    border-radius: 8px;
   }
 
   .active {

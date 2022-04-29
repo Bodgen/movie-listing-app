@@ -2,26 +2,33 @@ import './App.css';
 import './fonts.css';
 import Navbar from './UI/Navbar/Navbar';
 import styled from "styled-components";
-import Card from "./UI/Card/Card";
-import Button from "./UI/Button/Button";
-import CustomInput from "./UI/CustomInput/CustomInput";
+import Home from "./Pages/Home/Home";
+import DetailsPage from "./Pages/DetailsPage/DetailsPage";
+import {useRoutes} from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 120px 75px;
-  padding-top: 160px;
+  padding-top: 80px;
+  flex-wrap: wrap;
 `
 
-
 function App() {
+
+    const routersConfig = [{
+        path: "/",
+        element: <Home/>
+    }, {
+        path: '/movie/:movieId',
+        element: <DetailsPage />,
+    }]
+
+    let routers = useRoutes(routersConfig)
     return (<div className="App">
         <Navbar/>
         <Container>
-            <Card/>
-            <Button/>
-            <CustomInput/>
+            {routers}
         </Container>
     </div>);
 }

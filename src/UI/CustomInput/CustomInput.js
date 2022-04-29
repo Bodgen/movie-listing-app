@@ -11,6 +11,7 @@ const CustomInputContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  cursor: pointer;
   img{
     margin:0 16px;
   }
@@ -27,11 +28,11 @@ const InputStyles = styled.input`
   }
 `
 
-const CustomInput = () => {
+const CustomInput = ({children}) => {
     return (
         <CustomInputContainer>
             <img src={icon} alt=""/>
-            <InputStyles/>
+            <InputStyles placeholder={children}/>
         </CustomInputContainer>
     );
 };

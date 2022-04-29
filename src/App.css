@@ -8,61 +8,61 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
     list-style: none;
 }
 
 body {
-    line-height:1;
+    line-height: 1;
 }
 
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-    display:block;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
 }
 
 nav ul {
-    list-style:none;
+    list-style: none;
 }
 
 blockquote, q {
-    quotes:none;
+    quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content:'';
-    content:none;
+    content: '';
 }
 
 a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
 }
 
 ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
 }
 
 mark {
-    background-color:#ff9;
-    color:#000; 
-    font-style:italic;
-    font-weight:bold;
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
 }
 
 del {
@@ -70,57 +70,59 @@ del {
 }
 
 abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
+    border-bottom: 1px dotted;
+    cursor: help;
 }
 
 table {
-    border-collapse:collapse;
-    border-spacing:0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 hr {
-    display:block;
-    height:1px;
-    border:0;   
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 input, select {
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 
 /* Styles for app */
-body{
-  background-image: url('./assets/img/Background.svg');
-  background-color: #121829;
-  font-family: PoppinsRegular;
+body {
+    background-image: url('./assets/img/Background.svg');
+    background-repeat: no-repeat;
+    background-color: #121829;
+    font-family: PoppinsRegular;
+    color: #EBEEF5;
 }
 
-h1{
-   font-family: PoppinsSemiBold;
-   font-size: 64px;
-   line-height: 80px;
-   letter-spacing: -2%;
+h1 {
+    font-family: PoppinsSemiBold;
+    font-size: 64px;
+    line-height: 80px;
+    letter-spacing: -2%;
 }
 
-h2{
-  font-family: PoppinsSemiBold;
-  font-size: 48px;
-  line-height: 56px;
-  letter-spacing: -2%;
+h2 {
+    font-family: PoppinsSemiBold;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -2%;
 }
 
-h6{
-  font-family: PoppinsSemiBold;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -1.5%;
+h6 {
+    font-family: PoppinsSemiBold;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -1.5%;
 }
 
-.App{
+.App {
     width: 100%;
 }

@@ -5,7 +5,6 @@ import star from '../../assets/img/star.svg'
 const RatingButtonStyles = styled.div`
   display: flex;
   align-items: center;
-  width: 58px;
   height: 32px;
   background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
@@ -26,12 +25,12 @@ const RatingButtonContainer = styled.div`
 `
 
 
-const RatingButton = () => {
+const RatingButton = ({children}) => {
     return (
         <RatingButtonStyles>
             <RatingButtonContainer>
                 <img src={star} alt=""/>
-                <h6>8.1</h6>
+                <h6>{children}</h6>
             </RatingButtonContainer>
         </RatingButtonStyles>
     );

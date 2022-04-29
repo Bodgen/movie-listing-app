@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
-import preview from '../../assets/img/film-preview.png';
-import filmTitle from '../../assets/img/film_title.png';
 import RatingButton from "../../UI/RatingButton/RatingButton";
+import axios from "axios";
+import {useParams} from "react-router-dom";
 
 const DetailsPageStyles = styled.div`
   display: flex;
@@ -15,6 +15,12 @@ const FilmPreview = styled.div`
   background: linear-gradient(180deg, rgba(54, 44, 146, 0.4) 0%, rgba(18, 98, 151, 0.4) 100%);
   border-radius: 40px;
   margin-bottom: 150px;
+
+  img {
+    width: 1200px;
+    height: 480px;
+    border-radius: 40px;
+  }
 `
 
 const AboutFilmPopup = styled.div`
@@ -28,7 +34,7 @@ const AboutFilmPopup = styled.div`
   background: rgba(32, 40, 62, 0.8);
   border-radius: 24px;
 
-  h1 {
+  h2 {
     padding-left: 40px;
   }
 `
@@ -43,36 +49,74 @@ const FilmTitle = styled.img`
   height: 750px;
   width: 480px;
   margin-right: 80px;
+  border-radius: 24px;
 `
 const FilmDescription = styled.div`
-  h2{
+
+  .rating {
+    max-width: 62px;
     margin-bottom: 24px;
   }
-  p{
+
+  h2 {
     margin-bottom: 24px;
+  }
+
+  p {
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #767E94;
+    margin-bottom: 8px;
   }
 `
 
 const DetailsPage = () => {
+    const [currentFilm, setCurrentFilm] = useState(null)
+    const {movieId} = useParams()
+    useEffect(() => {
+        axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0ccca053096b78aeb501b706e51dece9&language=en-US`)
+            .then(response => setCurrentFilm(response.data))
+    }, [])
+    console.log(currentFilm)
     return (
         <DetailsPageStyles>
-            <FilmPreview>
-                <img src={preview} alt=""/>
-            </FilmPreview>
-            <AboutFilmPopup>
-                <h1>Film Name</h1>
-            </AboutFilmPopup>
-            <Content>
-                <FilmTitle src={filmTitle} alt=""/>
-                <FilmDescription>
-                    <h2>Title</h2>
-                    <p>After the devastating events of Avengers: Infinity War, the universe is in ruins due to the
-                        efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble
-                        once more in order to undo Thanos' actions and restore order to the universe once and for all,
-                        no matter what consequences may be in store.</p>
-                    <RatingButton/>
-                </FilmDescription>
-            </Content>
+            {currentFilm &&
+                <div>
+                    <FilmPreview>
+                        <img src={'https://image.tmdb.org/t/p/w200/' + currentFilm.backdrop_path} alt=""/>
+                    </FilmPreview>
+                    <AboutFilmPopup>
+                        <h2>{currentFilm.title}</h2>
+                    </AboutFilmPopup>
+                    <Content>
+                        <FilmTitle src={'https://image.tmdb.org/t/p/w200/' + currentFilm.poster_path} alt=""/>
+                        <FilmDescription>
+                            <h2>{currentFilm.tagline}</h2>
+                            <p>{currentFilm.overview}</p>
+                            <div className='rating'>
+                                <RatingButton children={currentFilm.vote_average}/>
+                            </div>
+                            <h5>Release Date:</h5>
+                            <p>{currentFilm.release_date}</p>
+                            <h5>Run time</h5>
+                            <p>{currentFilm.runtime}</p>
+                            <h5>Genres</h5>
+                            <p>{currentFilm.genres.map((item, index) => {
+                                if (index === currentFilm.genres.length-1) {
+                                    debugger
+                                    return item.name
+                                } else
+                                    return item.name + ', '
+                            })}</p>
+                        </FilmDescription>
+                    </Content>
+                </div>}
         </DetailsPageStyles>
     );
 };
