@@ -20,7 +20,7 @@ function App() {
         path: "/",
         element: <Home/>
     }, {
-        path: '/movie/:mediaType/:movieId',
+        path: '/movie/:movieId',
         element: <DetailsPage />,
     }]
 
