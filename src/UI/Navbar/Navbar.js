@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Brand from '../Brand/Brand';
+import {Link} from "react-router-dom";
 
 const NavbarStyles = styled.nav`
   color: #A8AEBF;
@@ -16,33 +17,42 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 120px 0; z-index: 200;
+  padding: 20px 120px 0;
+  z-index: 200;
+
+  .brand {
+    cursor: pointer;
+  }
 `
 
 const Menu = styled.div`
   ul {
     display: flex;
     margin-right: 40px;
-    
+
   }
 
   ul li {
     transition: all .5s;
     margin: 0px 16px;
   }
-  
-  ul li:hover{
+
+  ul li:hover {
     cursor: pointer;
     color: #7B6EF6;
   }
-  
+
 `
 
 const Navbar = () => {
     return (
         <NavbarStyles>
             <NavbarContainer>
-                <Brand/>
+                <div className='brand'>
+                    <Link to='/'>
+                        <Brand/>
+                    </Link>
+                </div>
                 <Menu>
                     <ul>
                         <li>
