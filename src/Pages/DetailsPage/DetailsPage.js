@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import RatingButton from "../../UI/RatingButton/RatingButton";
-import axios from "axios";
 import {useParams} from "react-router-dom";
+import {movieApi} from "../../api/api";
+import Details from "../../UI/Description";
 
 const DetailsPageStyles = styled.div`
   display: flex;
@@ -46,7 +47,8 @@ const Content = styled.div`
 
 `
 const FilmTitle = styled.img`
-  width: 480px;
+  //width: 480px;
+  max-height: 270px;
   margin-right: 80px;
   border-radius: 24px;
 `
@@ -79,10 +81,8 @@ const DetailsPage = () => {
     const [currentFilm, setCurrentFilm] = useState(null)
     const {mediaType,movieId} = useParams()
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=0ccca053096b78aeb501b706e51dece9&language=en-US`)
-            .then(response => setCurrentFilm(response.data))
-    }, [])
-    console.log(currentFilm)
+      movieApi.getItemDetails(mediaType,movieId).then(data=>setCurrentFilm(data))
+    }, [mediaType,movieId])
     return (
         <DetailsPageStyles>
             {currentFilm &&
@@ -91,7 +91,7 @@ const DetailsPage = () => {
                         <img src={'https://image.tmdb.org/t/p/w200/' + currentFilm.backdrop_path} alt=""/>
                     </FilmPreview>
                     <AboutFilmPopup>
-                        <h2>{currentFilm.title}</h2>
+                        <h2>{currentFilm.title||currentFilm.name}</h2>
                     </AboutFilmPopup>
                     <Content>
                         <FilmTitle src={'https://image.tmdb.org/t/p/w200/' + currentFilm.poster_path} alt=""/>
@@ -101,18 +101,7 @@ const DetailsPage = () => {
                             <div className='rating'>
                                 <RatingButton children={currentFilm.vote_average}/>
                             </div>
-                            <h5>Release Date:</h5>
-                            <p>{currentFilm.release_date}</p>
-                            <h5>Run time</h5>
-                            <p>{currentFilm.runtime}</p>
-                            <h5>Genres</h5>
-                            <p>{currentFilm.genres.map((item, index) => {
-                                if (index === currentFilm.genres.length-1) {
-                                    debugger
-                                    return item.name
-                                } else
-                                    return item.name + ', '
-                            })}</p>
+                           <Details currentItem={currentFilm} mediaType={mediaType}/>
                         </FilmDescription>
                     </Content>
                 </div>}
