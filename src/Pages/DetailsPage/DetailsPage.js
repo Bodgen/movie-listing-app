@@ -3,7 +3,7 @@ import styled from "styled-components";
 import RatingButton from "../../UI/RatingButton/RatingButton";
 import {useParams} from "react-router-dom";
 import {movieApi} from "../../api/api";
-import Details from "../../UI/Description";
+import Details from "../../UI/Description/Description";
 
 const DetailsPageStyles = styled.div`
   display: flex;
