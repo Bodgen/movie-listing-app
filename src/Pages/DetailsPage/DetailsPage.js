@@ -46,7 +46,6 @@ const Content = styled.div`
 
 `
 const FilmTitle = styled.img`
-  height: 750px;
   width: 480px;
   margin-right: 80px;
   border-radius: 24px;
@@ -78,9 +77,9 @@ const FilmDescription = styled.div`
 
 const DetailsPage = () => {
     const [currentFilm, setCurrentFilm] = useState(null)
-    const {movieId} = useParams()
+    const {mediaType,movieId} = useParams()
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0ccca053096b78aeb501b706e51dece9&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=0ccca053096b78aeb501b706e51dece9&language=en-US`)
             .then(response => setCurrentFilm(response.data))
     }, [])
     console.log(currentFilm)
