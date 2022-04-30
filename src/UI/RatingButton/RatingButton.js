@@ -21,6 +21,7 @@ const RatingButtonContainer = styled.div`
     width: 16px;
     height: 16px;
     margin-right: 4px;
+    margin-bottom: 2px;
   }
 `
 

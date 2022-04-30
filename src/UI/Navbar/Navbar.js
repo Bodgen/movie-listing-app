@@ -25,25 +25,6 @@ const NavbarContainer = styled.div`
   }
 `
 
-const Menu = styled.div`
-  ul {
-    display: flex;
-    margin-right: 40px;
-
-  }
-
-  ul li {
-    transition: all .5s;
-    margin: 0px 16px;
-  }
-
-  ul li:hover {
-    cursor: pointer;
-    color: #7B6EF6;
-  }
-
-`
-
 const Navbar = () => {
     return (
         <NavbarStyles>
@@ -53,25 +34,6 @@ const Navbar = () => {
                         <Brand/>
                     </Link>
                 </div>
-                <Menu>
-                    <ul>
-                        <li>
-                            <h6>
-                                Movies
-                            </h6>
-                        </li>
-                        <li>
-                            <h6>
-                                TV Shows
-                            </h6>
-                        </li>
-                        <li>
-                            <h6>
-                                Suggest me
-                            </h6>
-                        </li>
-                    </ul>
-                </Menu>
             </NavbarContainer>
         </NavbarStyles>
     )

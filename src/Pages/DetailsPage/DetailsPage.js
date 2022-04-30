@@ -16,10 +16,12 @@ const FilmPreview = styled.div`
   background: linear-gradient(180deg, rgba(54, 44, 146, 0.4) 0%, rgba(18, 98, 151, 0.4) 100%);
   border-radius: 40px;
   margin-bottom: 150px;
+  width: 1200px;height: 480px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 
   img {
-    width: 1200px;
-    height: 480px;
     border-radius: 40px;
   }
 `

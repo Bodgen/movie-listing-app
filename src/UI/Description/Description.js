@@ -28,7 +28,8 @@ const DetailsStyles = styled.div`
 
 const TvDetails = styled.div`
   display: flex;
-  .genres{
+
+  .genres {
     display: flex;
     flex-direction: column;
   }
@@ -45,8 +46,11 @@ const Details = ({currentItem, mediaType}) => {
                 <div>
                     <h5>Release Date:</h5>
                     <p>{currentItem.release_date}</p>
-                    <h5>Run time</h5>
-                    <p>{currentItem.runtime}</p>
+                    {currentItem.runtime &&
+                        <div>
+                            <h5>Run time</h5>
+                            <p>{currentItem.runtime}</p>
+                        </div>}
                     <h5>Genres</h5>
                     <p>{currentItem.genres.map((item, index) => {
                         if (index === currentItem.genres.length - 1) {
@@ -73,16 +77,15 @@ const Details = ({currentItem, mediaType}) => {
                         <h5>No. of episodes</h5>
                         <p>{currentItem.number_of_episodes}</p>
                     </DetailsRow>
-                    <div className="genres">
-                        <h5>Genres</h5>
-                        <p>{currentItem.genres.map((item, index) => {
-                            if (index === currentItem.genres.length - 1) {
-                                return item.name
-                            } else
-                                return item.name + ', '
-                        })}</p>
-                    </div>
-
+                        <div className="genres">
+                            <h5>Genres</h5>
+                            <p>{currentItem.genres.map((item, index) => {
+                                if (index === currentItem.genres.length - 1) {
+                                    return item.name
+                                } else
+                                    return item.name + ', '
+                            })}</p>
+                        </div>
                 </TvDetails>}
         </DetailsStyles>
     );

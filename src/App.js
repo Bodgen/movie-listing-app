@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Home from "./Pages/Home/Home";
 import DetailsPage from "./Pages/DetailsPage/DetailsPage";
 import {useRoutes} from "react-router-dom";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 
 const Container = styled.div`
   display: flex;
@@ -21,8 +22,13 @@ function App() {
         element: <Home/>
     }, {
         path: '/movie/:mediaType/:movieId',
-        element: <DetailsPage />,
-    }]
+        element: <DetailsPage/>,
+    },
+        {
+            path: "*",
+            element: <NotFoundPage/>
+        }
+    ]
 
     let routers = useRoutes(routersConfig)
     return (<div className="App">

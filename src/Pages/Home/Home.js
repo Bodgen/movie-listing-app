@@ -44,7 +44,7 @@ const Home = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchItems())
-    }, [])
+    }, [dispatch])
 
     const onSelectCategory = (index) => {
         dispatch(actions.setCategory(index))

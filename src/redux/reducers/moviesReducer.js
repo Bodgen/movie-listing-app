@@ -38,7 +38,6 @@ export const {actions, reducer} = moviesSlice
 export const fetchItems = () => async (dispatch) => {
     dispatch(actions.toggleIsFetching(true))
     await movieApi.getItems().then(data => {
-        console.log(data)
         dispatch(actions.setItems(data))
         dispatch(actions.toggleIsFetching(false))
     })
